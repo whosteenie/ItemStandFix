@@ -55,6 +55,7 @@ namespace ItemStandFix
 
                 __instance.Set(ZDOVars.s_quality, itemData.m_quality, false);
                 __instance.Set(ZDOVars.s_variant, itemData.m_variant, false);
+                ItemStandMetadata.ForceServerSync(__instance);
 
                 Plugin.Log.LogDebug(
                     $"Server repaired item stand visual metadata: " +
@@ -78,6 +79,7 @@ namespace ItemStandFix
 
             if (ItemStandMetadata.ClearVisualMetadata(zdo))
             {
+                ItemStandMetadata.ForceServerSync(zdo);
                 Plugin.Log.LogDebug(
                     "Server cleared visual metadata from an empty item stand.");
             }

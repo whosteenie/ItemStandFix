@@ -9,7 +9,7 @@ namespace ItemStandFix
     {
         public const string PluginGuid = "com.github.whosteenie.itemstandfix";
         public const string PluginName = "Item Stand Fix";
-        public const string PluginVersion = "0.3.1";
+        public const string PluginVersion = "0.3.3";
 
         internal static ManualLogSource Log { get; private set; }
 

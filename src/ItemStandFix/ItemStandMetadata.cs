@@ -27,5 +27,13 @@ namespace ItemStandFix
             bool removedVariant = zdo.RemoveInt(ZDOVars.s_variant);
             return removedQuality || removedVariant;
         }
+
+        internal static void ForceServerSync(ZDO zdo)
+        {
+            if (ZDOMan.instance != null)
+            {
+                ZDOMan.instance.ForceSendZDO(zdo.m_uid);
+            }
+        }
     }
 }

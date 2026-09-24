@@ -1,4 +1,5 @@
 using HarmonyLib;
+using UnityEngine;
 
 namespace ItemStandFix
 {
@@ -9,6 +10,7 @@ namespace ItemStandFix
         {
             public ZDO Zdo;
             public int PreviousItemHash;
+            public GameObject ExpectedItemPrefab;
             public int Quality;
             public int Variant;
         }
@@ -20,7 +22,10 @@ namespace ItemStandFix
         {
             __state = null;
 
-            if (___m_queuedItem == null || ___m_nview == null || !___m_nview.IsValid())
+            if (___m_queuedItem == null ||
+                ___m_queuedItem.m_dropPrefab == null ||
+                ___m_nview == null ||
+                !___m_nview.IsValid())
             {
                 return;
             }
@@ -35,6 +40,7 @@ namespace ItemStandFix
             {
                 Zdo = zdo,
                 PreviousItemHash = zdo.GetInt(ZDOVars.s_item, 0),
+                ExpectedItemPrefab = ___m_queuedItem.m_dropPrefab,
                 Quality = ___m_queuedItem.m_quality,
                 Variant = ___m_queuedItem.m_variant
             };
@@ -48,7 +54,13 @@ namespace ItemStandFix
             }
 
             int attachedItemHash = __state.Zdo.GetInt(ZDOVars.s_item, 0);
-            if (attachedItemHash == 0)
+            if (attachedItemHash == 0 || ObjectDB.instance == null)
+            {
+                return;
+            }
+
+            GameObject attachedItemPrefab = ObjectDB.instance.GetItemPrefab(attachedItemHash);
+            if (attachedItemPrefab == null || attachedItemPrefab != __state.ExpectedItemPrefab)
             {
                 return;
             }
