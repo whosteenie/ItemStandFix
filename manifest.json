@@ -1,6 +1,6 @@
 {
   "name": "ItemStandFix",
-  "version_number": "0.3.3",
+  "version_number": "0.3.4",
   "website_url": "https://github.com/whosteenie/ItemStandFix",
   "description": "Fixes Valheim item stands losing displayed item styles and upgrade visuals. Supports dedicated servers without requiring client installation.",
   "dependencies": [

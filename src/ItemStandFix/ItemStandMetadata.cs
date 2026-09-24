@@ -15,12 +15,6 @@ namespace ItemStandFix
             return standPrefab != null && standPrefab.GetComponent<ItemStand>() != null;
         }
 
-        internal static bool HasVisualMetadata(ZDO zdo)
-        {
-            return zdo.GetInt(ZDOVars.s_quality, out _) ||
-                   zdo.GetInt(ZDOVars.s_variant, out _);
-        }
-
         internal static bool ClearVisualMetadata(ZDO zdo)
         {
             bool removedQuality = zdo.RemoveInt(ZDOVars.s_quality);

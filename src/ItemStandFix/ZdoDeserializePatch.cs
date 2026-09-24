@@ -17,7 +17,6 @@ namespace ItemStandFix
             int itemHash = __instance.GetInt(ZDOVars.s_item, 0);
             if (itemHash == 0)
             {
-                ClearEmptyStand(__instance);
                 return;
             }
 
@@ -69,20 +68,5 @@ namespace ItemStandFix
             }
         }
 
-        private static void ClearEmptyStand(ZDO zdo)
-        {
-            if (!ItemStandMetadata.HasVisualMetadata(zdo) ||
-                !ItemStandMetadata.IsItemStand(zdo))
-            {
-                return;
-            }
-
-            if (ItemStandMetadata.ClearVisualMetadata(zdo))
-            {
-                ItemStandMetadata.ForceServerSync(zdo);
-                Plugin.Log.LogDebug(
-                    "Server cleared visual metadata from an empty item stand.");
-            }
-        }
     }
 }
