@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.7 - 2026-09-24
+
+- Refreshes hammer-highlight renderer tracking when an item stand replaces its
+  displayed item, allowing newly attached items to highlight immediately.
+
+## 0.3.6 - 2026-09-24
+
+- Restores item styles after the active hammer-highlight material update, rather
+  than waiting for highlighting to end.
+
+## 0.3.5 - 2026-09-24
+
+- Added the initial client-side hammer-highlight restoration attempt.
+
 ## 0.3.4 - 2026-09-23
 
 - Prevents transient server deserialization states from clearing metadata on

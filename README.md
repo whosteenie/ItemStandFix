@@ -3,8 +3,8 @@
 Experimental BepInEx plugin for Valheim 1.0.15. It preserves the quality and
 variant metadata used by an item stand's periodic visual refresh. The same DLL
 supports client-side fallback and dedicated-server enforcement. Visual metadata
-is removed again when a stand becomes empty so later items cannot inherit stale
-quality or style values.
+is replaced whenever another item is placed. Client installations also restore
+the displayed style after the stand is highlighted with a hammer.
 
 ## Build
 
@@ -24,8 +24,10 @@ reference assemblies out of that directory because Valheim and BepInEx already
 provide them at runtime.
 
 For server-wide behavior, install the DLL in the dedicated server's
-`BepInEx\plugins` directory. Clients do not need the plugin. A client installation
-remains useful for singleplayer or when connecting to an unmodded server.
+`BepInEx\plugins` directory. Clients do not need the plugin for placement metadata
+to be preserved. Install it on clients as well to prevent hammer highlighting
+from visually clearing an attached item's style after reconnecting. A client
+installation also supports singleplayer and unmodded servers.
 
 ## Test
 
@@ -36,7 +38,9 @@ remains useful for singleplayer or when connecting to an unmodded server.
 5. Remove the item and confirm its variant and upgrade level remain intact.
 6. Place an item with a different quality and style on the same stand and confirm
    it displays its own values.
-7. Optionally enable BepInEx debug logging and check `BepInEx\LogOutput.log` for
+7. Reconnect, highlight the occupied stand with a hammer, look away, and confirm
+   the attached item retains its style.
+8. Optionally enable BepInEx debug logging and check `BepInEx\LogOutput.log` for
    `Stored item stand visual metadata`.
 
 For a server-only test, remove the plugin from the client, restart both processes,
