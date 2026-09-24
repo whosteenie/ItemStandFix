@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.8 - 2026-09-24
+
+- Documents the hammer-highlight limitation for unmodded clients, its temporary
+  remove-and-replace workaround, and the complete client-side fix.
+
 ## 0.3.7 - 2026-09-24
 
 - Refreshes hammer-highlight renderer tracking when an item stand replaces its

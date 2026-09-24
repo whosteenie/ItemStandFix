@@ -1,6 +1,6 @@
 {
   "name": "ItemStandFix",
-  "version_number": "0.3.7",
+  "version_number": "0.3.8",
   "website_url": "https://github.com/whosteenie/ItemStandFix",
   "description": "Preserves item stand styles and upgrade visuals. Server installs protect placement metadata; client installs also fix hammer-highlight visual resets.",
   "dependencies": [

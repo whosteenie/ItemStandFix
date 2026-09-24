@@ -29,6 +29,17 @@ to be preserved. Install it on clients as well to prevent hammer highlighting
 from visually clearing an attached item's style after reconnecting. A client
 installation also supports singleplayer and unmodded servers.
 
+### Server-only limitation
+
+After reconnecting, an unmodded client can visually lose a displayed item's
+style when highlighting its item stand with a hammer. The stored item and its
+variant remain correct; this is a client-side rendering issue. Removing and
+replacing the item restores its style until the client's next reconnect.
+
+Installing Item Stand Fix on the client fully prevents this hammer-highlight
+style reset. For complete visual behavior, install the same DLL on both the
+dedicated server and each client.
+
 ## Test
 
 1. Back up the test character and world.
@@ -38,8 +49,9 @@ installation also supports singleplayer and unmodded servers.
 5. Remove the item and confirm its variant and upgrade level remain intact.
 6. Place an item with a different quality and style on the same stand and confirm
    it displays its own values.
-7. Reconnect, highlight the occupied stand with a hammer, look away, and confirm
-   the attached item retains its style.
+7. With the plugin installed on the client, reconnect, highlight the occupied
+   stand with a hammer, look away, and confirm the attached item retains its
+   style.
 8. Optionally enable BepInEx debug logging and check `BepInEx\LogOutput.log` for
    `Stored item stand visual metadata`.
 
