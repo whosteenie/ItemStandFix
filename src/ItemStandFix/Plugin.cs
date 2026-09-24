@@ -7,9 +7,9 @@ namespace ItemStandFix
     [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
     public sealed class Plugin : BaseUnityPlugin
     {
-        public const string PluginGuid = "com.itemstandfix.valheim";
+        public const string PluginGuid = "com.github.whosteenie.itemstandfix";
         public const string PluginName = "Item Stand Fix";
-        public const string PluginVersion = "0.1.0";
+        public const string PluginVersion = "0.3.1";
 
         internal static ManualLogSource Log { get; private set; }
 

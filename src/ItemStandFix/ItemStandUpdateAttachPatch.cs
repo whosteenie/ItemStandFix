@@ -59,7 +59,7 @@ namespace ItemStandFix
             __state.Zdo.Set(ZDOVars.s_quality, __state.Quality, false);
             __state.Zdo.Set(ZDOVars.s_variant, __state.Variant, false);
 
-            Plugin.Log.LogInfo(
+            Plugin.Log.LogDebug(
                 $"Stored item stand visual metadata: " +
                 $"quality {previousQuality}->{__state.Quality}, " +
                 $"variant {previousVariant}->{__state.Variant}.");
